@@ -3,7 +3,8 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { 
   ListTodo, BarChart3, Settings as SettingsIcon ,Menu, User, Bell, 
   Moon, Sun, Languages, HelpCircle, Info, LogOut,
-  ChevronRight, Smartphone, Lock, Trash2
+  ChevronRight, Smartphone, Lock, Trash2,
+  Trophy
 } from 'lucide-react';
 import './Settings.css';
 
@@ -221,7 +222,16 @@ const Settings: React.FC = () => {
             />
             <span>Estadísticas</span>
           </button>
-
+          <button 
+            onClick={() => navigateToTab('/logros')}
+            className={`nav-button ${currentTab === '/logros' ? 'active' : ''}`}
+          >
+            <Trophy
+              size={24} 
+              color={currentTab === '/logros' ? '#818cf8' : '#71717a'} 
+            />
+            <span>Logros</span>
+          </button>
           <button 
             onClick={() => navigateToTab('/tab3')}
             className={`nav-button ${currentTab === '/tab3' ? 'active' : ''}`}
