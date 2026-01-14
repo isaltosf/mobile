@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { ListTodo, BarChart3, Settings, Menu } from 'lucide-react';
+import { ListTodo, BarChart3, Settings, Menu, Trophy } from 'lucide-react';
 import './Tab3.css';
 
 const Tab3: React.FC = () => {
@@ -16,10 +16,10 @@ const Tab3: React.FC = () => {
   }, []);
 
   const formatTime = (date: Date) => {
-    return date.toLocaleTimeString('es-ES', { 
-      hour: '2-digit', 
+    return date.toLocaleTimeString('es-ES', {
+      hour: '2-digit',
       minute: '2-digit',
-      hour12: false 
+      hour12: false
     });
   };
 
@@ -37,7 +37,7 @@ const Tab3: React.FC = () => {
           <Menu size={24} />
         </button>
         <h1 className="title">Configuración</h1>
-        <div style={{width: '48px'}}></div>
+        <div style={{ width: '48px' }}></div>
       </div>
 
       {/* Main Content */}
@@ -54,35 +54,46 @@ const Tab3: React.FC = () => {
       {/* Bottom Navigation */}
       <div className="bottom-nav">
         <div className="nav-container">
-          <button 
+          <button
             onClick={() => navigateToTab('/tab1')}
             className={`nav-button ${currentTab === '/tab1' ? 'active' : ''}`}
           >
-            <ListTodo 
-              size={24} 
-              color={currentTab === '/tab1' ? '#818cf8' : '#71717a'} 
+            <ListTodo
+              size={24}
+              color={currentTab === '/tab1' ? '#818cf8' : '#71717a'}
             />
             <span>Hábitos</span>
           </button>
 
-          <button 
+          <button
             onClick={() => navigateToTab('/tab2')}
             className={`nav-button ${currentTab === '/tab2' ? 'active' : ''}`}
           >
-            <BarChart3 
-              size={24} 
-              color={currentTab === '/tab2' ? '#818cf8' : '#71717a'} 
+            <BarChart3
+              size={24}
+              color={currentTab === '/tab2' ? '#818cf8' : '#71717a'}
             />
             <span>Estadísticas</span>
           </button>
 
-          <button 
+          <button
+            onClick={() => navigateToTab('/logros')}
+            className={`nav-button ${currentTab === '/logros' ? 'active' : ''}`}
+          >
+            <Trophy
+              size={24}
+              color={currentTab === '/logros' ? '#818cf8' : '#71717a'}
+            />
+            <span>Logros</span>
+          </button>
+
+          <button
             onClick={() => navigateToTab('/tab3')}
             className={`nav-button ${currentTab === '/tab3' ? 'active' : ''}`}
           >
-            <Settings 
-              size={24} 
-              color={currentTab === '/tab3' ? '#818cf8' : '#71717a'} 
+            <Settings
+              size={24}
+              color={currentTab === '/tab3' ? '#818cf8' : '#71717a'}
             />
             <span>Configuración</span>
           </button>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { Plus, Menu, CloudRain, Sprout, ListTodo, ChevronDown, BarChart3, Settings } from 'lucide-react';
+import { Plus, Menu, CloudRain, Sprout, ListTodo, ChevronDown, BarChart3, Settings, Trophy } from 'lucide-react';
 import './Tab1.css';
 
 interface Habit {
@@ -32,12 +32,12 @@ const Tab1: React.FC = () => {
     const today = new Date();
     const currentDay = today.getDay();
     const currentDate = today.getDate();
-    
+
     return Array.from({ length: 7 }, (_, i) => {
       const dayIndex = (currentDay - 3 + i + 7) % 7;
       const date = new Date(today);
       date.setDate(currentDate - 3 + i);
-      
+
       return {
         day: days[dayIndex],
         date: date.getDate(),
@@ -49,10 +49,10 @@ const Tab1: React.FC = () => {
   const daysOfWeek = getDaysOfWeek();
 
   const formatTime = (date: Date) => {
-    return date.toLocaleTimeString('es-ES', { 
-      hour: '2-digit', 
+    return date.toLocaleTimeString('es-ES', {
+      hour: '2-digit',
       minute: '2-digit',
-      hour12: false 
+      hour12: false
     });
   };
 
@@ -77,7 +77,7 @@ const Tab1: React.FC = () => {
   };
 
   const toggleHabit = (id: string) => {
-    setHabits(habits.map(habit => 
+    setHabits(habits.map(habit =>
       habit.id === id ? { ...habit, completed: !habit.completed } : habit
     ));
   };
@@ -146,17 +146,17 @@ const Tab1: React.FC = () => {
                     <h3 className="onboarding-title">Prepárate para Grit 🔥</h3>
                     <p className="onboarding-progress">Hoy, 0/3</p>
                   </div>
-                  <button 
+                  <button
                     onClick={() => setShowOnboarding(false)}
                     className="chevron-button"
                   >
                     <ChevronDown size={24} />
                   </button>
                 </div>
-                
+
                 <div className="onboarding-content">
                   <p className="onboarding-subtitle">Configúrate en minutos y sé constante</p>
-                  
+
                   <div className="onboarding-item" onClick={() => createHabit('good')}>
                     <div className="onboarding-icon">
                       <Sprout size={20} />
@@ -201,19 +201,19 @@ const Tab1: React.FC = () => {
                     <div className="habit-details">
                       <h3 className="habit-name">{habit.name}</h3>
                       <p className="habit-type">
-                        {habit.type === 'good' ? 'Buen hábito' : 
-                         habit.type === 'bad' ? 'Mal hábito' : 'Tarea'}
+                        {habit.type === 'good' ? 'Buen hábito' :
+                          habit.type === 'bad' ? 'Mal hábito' : 'Tarea'}
                       </p>
                     </div>
                   </div>
                   <div className="habit-actions">
-                    <button 
+                    <button
                       className={`check-button ${habit.completed ? 'checked' : ''}`}
                       onClick={() => toggleHabit(habit.id)}
                     >
                       {habit.completed ? '✓' : ''}
                     </button>
-                    <button 
+                    <button
                       className="delete-button"
                       onClick={() => deleteHabit(habit.id)}
                     >
@@ -236,35 +236,46 @@ const Tab1: React.FC = () => {
       {/* Bottom Navigation */}
       <div className="bottom-nav">
         <div className="nav-container">
-          <button 
+          <button
             onClick={() => navigateToTab('/tab1')}
             className={`nav-button ${currentTab === '/tab1' ? 'active' : ''}`}
           >
-            <ListTodo 
-              size={24} 
-              color={currentTab === '/tab1' ? '#818cf8' : '#71717a'} 
+            <ListTodo
+              size={24}
+              color={currentTab === '/tab1' ? '#818cf8' : '#71717a'}
             />
             <span>Hábitos</span>
           </button>
 
-          <button 
+          <button
             onClick={() => navigateToTab('/tab2')}
             className={`nav-button ${currentTab === '/tab2' ? 'active' : ''}`}
           >
-            <BarChart3 
-              size={24} 
-              color={currentTab === '/tab2' ? '#818cf8' : '#71717a'} 
+            <BarChart3
+              size={24}
+              color={currentTab === '/tab2' ? '#818cf8' : '#71717a'}
             />
             <span>Estadísticas</span>
           </button>
 
-          <button 
+          <button
+            onClick={() => navigateToTab('/logros')}
+            className={`nav-button ${currentTab === '/logros' ? 'active' : ''}`}
+          >
+            <Trophy
+              size={24}
+              color={currentTab === '/logros' ? '#818cf8' : '#71717a'}
+            />
+            <span>Logros</span>
+          </button>
+
+          <button
             onClick={() => navigateToTab('/tab3')}
             className={`nav-button ${currentTab === '/tab3' ? 'active' : ''}`}
           >
-            <Settings 
-              size={24} 
-              color={currentTab === '/tab3' ? '#818cf8' : '#71717a'} 
+            <Settings
+              size={24}
+              color={currentTab === '/tab3' ? '#818cf8' : '#71717a'}
             />
             <span>Configuración</span>
           </button>
@@ -277,7 +288,7 @@ const Tab1: React.FC = () => {
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <h2 className="modal-title">Crear nuevo hábito</h2>
             <p className="modal-subtitle">Elige el tipo de hábito que quieres crear</p>
-            
+
             <div className="modal-options">
               <button className="modal-option good" onClick={() => createHabit('good')}>
                 <Sprout size={24} />
