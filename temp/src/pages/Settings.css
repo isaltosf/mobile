@@ -47,12 +47,15 @@
 /* Main Content - ARREGLADO PARA SCROLL */
 .main-content-scrollable {
   flex: 1;
-  overflow-y: scroll !important; /* Forzamos el scroll */
+  overflow-y: scroll !important;
+  /* Forzamos el scroll */
   overflow-x: hidden;
   padding: 16px;
-  padding-bottom: 20px; /* Reducido de 100px */
+  padding-bottom: 20px;
+  /* Reducido de 100px */
   -webkit-overflow-scrolling: touch;
-  min-height: 0; /* Importante para flex */
+  min-height: 0;
+  /* Importante para flex */
   position: relative;
 }
 
@@ -162,7 +165,7 @@
   flex: 1;
 }
 
-.setting-left > svg {
+.setting-left>svg {
   color: #6366f1;
   flex-shrink: 0;
 }
@@ -222,17 +225,19 @@
   border-radius: 50%;
 }
 
-input:checked + .toggle-slider {
+input:checked+.toggle-slider {
   background-color: #6366f1;
 }
 
-input:checked + .toggle-slider:before {
+input:checked+.toggle-slider:before {
   transform: translateX(24px);
 }
 
 .settings-footer p {
-  margin: 4px 0; /* Reducido el margen */
-  font-size: 12px; /* Reducido el tamaño */
+  margin: 4px 0;
+  /* Reducido el margen */
+  font-size: 12px;
+  /* Reducido el tamaño */
 }
 
 /* Bottom Navigation */
@@ -241,9 +246,11 @@ input:checked + .toggle-slider:before {
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   padding: 12px 16px;
-  position: sticky;
+  position: fixed;
   bottom: 0;
-  z-index: 10;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 .nav-container {
@@ -269,7 +276,7 @@ input:checked + .toggle-slider:before {
 }
 
 .nav-button.active {
-  background-color: rgba(99, 102, 241, 0.2);
+  background-color: #6366f1;
 }
 
 .nav-button span {
@@ -279,5 +286,5 @@ input:checked + .toggle-slider:before {
 }
 
 .nav-button.active span {
-  color: #818cf8;
+  color: #ffffff;
 }

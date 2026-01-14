@@ -311,7 +311,7 @@
 }
 
 .nav-button.active {
-  background-color: rgba(99, 102, 241, 0.2);
+  background-color: #6366f1;
 }
 
 .nav-button span {
@@ -321,5 +321,5 @@
 }
 
 .nav-button.active span {
-  color: #818cf8;
+  color: #ffffff;
 }

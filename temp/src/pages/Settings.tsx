@@ -1,9 +1,10 @@
+
 import React, { useState, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { 
-  ListTodo, BarChart3, Settings as SettingsIcon ,Menu, User, Bell, 
+import {
+  ListTodo, BarChart3, Settings as SettingsIcon, Menu, User, Bell,
   Moon, Sun, Languages, HelpCircle, Info, LogOut,
-  ChevronRight, Smartphone, Lock, Trash2
+  ChevronRight, Smartphone, Lock, Trash2, Trophy
 } from 'lucide-react';
 import './Settings.css';
 
@@ -40,7 +41,7 @@ const Settings: React.FC = () => {
           <Menu size={24} />
         </button>
         <h1 className="title">Configuración</h1>
-        <div style={{width: '48px'}}></div>
+        <div style={{ width: '48px' }}></div>
       </div>
 
       {/* Main Content - Ahora con scroll */}
@@ -64,7 +65,7 @@ const Settings: React.FC = () => {
         {/* General Settings */}
         <div className="settings-section">
           <h2 className="section-title">General</h2>
-          
+
           <div className="setting-item">
             <div className="setting-left">
               {darkMode ? <Moon size={20} /> : <Sun size={20} />}
@@ -74,8 +75,8 @@ const Settings: React.FC = () => {
               </div>
             </div>
             <label className="toggle-switch">
-              <input 
-                type="checkbox" 
+              <input
+                type="checkbox"
                 checked={darkMode}
                 onChange={() => setDarkMode(!darkMode)}
               />
@@ -92,8 +93,8 @@ const Settings: React.FC = () => {
               </div>
             </div>
             <label className="toggle-switch">
-              <input 
-                type="checkbox" 
+              <input
+                type="checkbox"
                 checked={notifications}
                 onChange={() => setNotifications(!notifications)}
               />
@@ -116,7 +117,7 @@ const Settings: React.FC = () => {
         {/* App Settings */}
         <div className="settings-section">
           <h2 className="section-title">Aplicación</h2>
-          
+
           <button className="setting-item clickable" onClick={() => alert('Recordatorios')}>
             <div className="setting-left">
               <Smartphone size={20} />
@@ -143,7 +144,7 @@ const Settings: React.FC = () => {
         {/* Support */}
         <div className="settings-section">
           <h2 className="section-title">Soporte</h2>
-          
+
           <button className="setting-item clickable" onClick={() => alert('Centro de ayuda')}>
             <div className="setting-left">
               <HelpCircle size={20} />
@@ -170,12 +171,12 @@ const Settings: React.FC = () => {
         {/* Danger Zone */}
         <div className="settings-section">
           <h2 className="section-title danger">Zona de peligro</h2>
-          
+
           <button className="setting-item clickable" onClick={handleLogout}>
             <div className="setting-left">
               <LogOut size={20} color="#f87171" />
               <div className="setting-text">
-                <h4 style={{color: '#f87171'}}>Cerrar sesión</h4>
+                <h4 style={{ color: '#f87171' }}>Cerrar sesión</h4>
               </div>
             </div>
             <ChevronRight size={20} color="#71717a" />
@@ -185,8 +186,8 @@ const Settings: React.FC = () => {
             <div className="setting-left">
               <Trash2 size={20} color="#ef4444" />
               <div className="setting-text">
-                <h4 style={{color: '#ef4444'}}>Eliminar cuenta</h4>
-                <p style={{color: '#ef4444'}}>Esta acción es permanente</p>
+                <h4 style={{ color: '#ef4444' }}>Eliminar cuenta</h4>
+                <p style={{ color: '#ef4444' }}>Esta acción es permanente</p>
               </div>
             </div>
             <ChevronRight size={20} color="#71717a" />
@@ -194,41 +195,52 @@ const Settings: React.FC = () => {
         </div>
 
         {/* Espacio adicional para el scroll */}
-        <div style={{height: '100px'}}></div>
+        <div style={{ height: '100px' }}></div>
       </div>
 
       {/* Bottom Navigation */}
       <div className="bottom-nav">
         <div className="nav-container">
-          <button 
+          <button
             onClick={() => navigateToTab('/tab1')}
             className={`nav-button ${currentTab === '/tab1' ? 'active' : ''}`}
           >
-            <ListTodo 
-              size={24} 
-              color={currentTab === '/tab1' ? '#818cf8' : '#71717a'} 
+            <ListTodo
+              size={24}
+              color={currentTab === '/tab1' ? '#818cf8' : '#71717a'}
             />
             <span>Hábitos</span>
           </button>
 
-          <button 
+          <button
             onClick={() => navigateToTab('/tab2')}
             className={`nav-button ${currentTab === '/tab2' ? 'active' : ''}`}
           >
-            <BarChart3 
-              size={24} 
-              color={currentTab === '/tab2' ? '#818cf8' : '#71717a'} 
+            <BarChart3
+              size={24}
+              color={currentTab === '/tab2' ? '#818cf8' : '#71717a'}
             />
             <span>Estadísticas</span>
           </button>
 
-          <button 
+          <button
+            onClick={() => navigateToTab('/logros')}
+            className={`nav-button ${currentTab === '/logros' ? 'active' : ''}`}
+          >
+            <Trophy
+              size={24}
+              color={currentTab === '/logros' ? '#818cf8' : '#71717a'}
+            />
+            <span>Logros</span>
+          </button>
+
+          <button
             onClick={() => navigateToTab('/tab3')}
             className={`nav-button ${currentTab === '/tab3' ? 'active' : ''}`}
           >
-            <SettingsIcon 
-              size={24} 
-              color={currentTab === '/tab3' ? '#818cf8' : '#71717a'} 
+            <SettingsIcon
+              size={24}
+              color={currentTab === '/tab3' ? '#818cf8' : '#71717a'}
             />
             <span>Configuración</span>
           </button>
