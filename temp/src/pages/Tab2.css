@@ -7,25 +7,7 @@
   display: flex;
   flex-direction: column;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
-.status-bar {
-  padding: 12px 16px 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-}
-
-.status-time {
-  font-weight: 600;
-}
-
-.status-icons {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 16px;
+  height: 100vh;
 }
 
 .header {
@@ -33,25 +15,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #000;
 }
 
 .menu-button {
   width: 48px;
   height: 48px;
   border-radius: 50%;
+  border: none;
+  background-color: #18181b;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
   cursor: pointer;
-  color: #fff;
-  transition: all 0.2s;
-  background-color: #18181b;
-}
-
-.menu-button:hover {
-  opacity: 0.9;
-  transform: scale(1.05);
 }
 
 .title {
@@ -60,19 +37,229 @@
   margin: 0;
 }
 
+/* Main Content */
 .main-content {
   flex: 1;
-  padding: 32px 16px;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.section-subtitle {
+  color: #a1a1aa;
+  font-size: 14px;
+  margin-top: -8px;
+  margin-bottom: 24px;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background-color: #27272a;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stat-icon-wrapper {
+  margin-bottom: 4px;
+}
+
+.stat-icon {
+  /* Base color is set inline or via helper classes */
+}
+
+.stat-icon.theme-color {
+  color: #f97316;
+  /* Orange for Flame */
+}
+
+.stat-icon.green-color {
+  color: #10b981;
+  /* Green for Target */
+}
+
+.stat-icon.purple-color {
+  color: #818cf8;
+  /* Purple for Trend */
+}
+
+/* Override for specific icons if needed to match mockup colors while keeping app theme */
+/* For active days (calendar) maybe simple white or theme? Mockup had green. Using theme purple or white. */
+.stat-icon.theme-color {
+  color: #818cf8;
+}
+
+/* Let's stick to App Theme mostly */
+.stat-icon.theme-orange {
+  color: #fb923c;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #a1a1aa;
+}
+
+
+/* Charts Section */
+.chart-section {
+  background-color: #27272a;
+  /* Or just transparent with container? Mockup shows cards. */
+  /* Actually mockup shows cards for graphs too */
+  background-color: #ffffff05;
+  /* bright card effect */
+  background-color: #27272a;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+/* Bar Chart */
+.bar-chart-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 120px;
+  padding-top: 10px;
+}
+
+.bar-column {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.bar-bg {
+  width: 100%;
+  max-width: 32px;
+  /* Fat bars like mockup */
+  height: 100%;
+  /* background-color: #3f3f46;  Mockup has no bg for track? */
+  display: flex;
+  align-items: flex-end;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bar-fill {
+  width: 100%;
+  background-color: #10b981;
+  /* Mockup Green - keeping it or adapting? User said 'adapte a la app'. App is indigo. */
+  background-color: #818cf8;
+  /* Indigo matching app */
+  border-radius: 4px;
+}
+
+.bar-label {
+  font-size: 12px;
+  color: #71717a;
+}
+
+/* Line Chart */
+.line-chart-container {
+  height: 120px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.line-chart-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.chart-x-labels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10%;
+  /* rough guess */
+  margin-top: 8px;
+  color: #71717a;
+  font-size: 12px;
+}
+
+/* Header Tweaks */
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+/* Achievements Entry Card */
+.achievements-entry-card {
+  background-color: #18181b;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  border: 1px solid #27272a;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.achievements-entry-card:active {
+  transform: scale(0.98);
+  background-color: #27272a;
+}
+
+.entry-icon-bg {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background-color: rgba(129, 140, 248, 0.1);
+  display: flex;
+  align-items: center;
   justify-content: center;
+}
+
+.entry-text h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.entry-text p {
+  color: #a1a1aa;
+  margin: 0;
+  font-size: 14px;
 }
 
 .empty-state {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .icon-container {
@@ -83,7 +270,6 @@
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 8px;
-  margin-top: 0;
 }
 
 .empty-subtitle {
@@ -91,11 +277,16 @@
   margin: 0;
 }
 
+/* Bottom Nav */
 .bottom-nav {
   background-color: #18181b;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   padding: 12px 16px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .nav-container {
@@ -116,7 +307,6 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s;
   color: #71717a;
 }
 

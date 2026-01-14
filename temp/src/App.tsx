@@ -8,6 +8,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import Tab1 from './pages/HabitsHome';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Settings';
+import Logros from './pages/Logros';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -53,6 +54,9 @@ const App: React.FC = () => (
         </Route>
         <Route path="/tab3">
           <Tab3 />
+        </Route>
+        <Route path="/logros">
+          <Logros />
         </Route>
         <Route exact path="/">
           <Redirect to="/tab1" />
