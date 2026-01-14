@@ -1,0 +1,529 @@
+.habits-container {
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Status Bar */
+.status-bar {
+  padding: 12px 16px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.status-time {
+  font-weight: 600;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+
+/* Header */
+.header {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-button,
+.add-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.2s;
+}
+
+.menu-button {
+  background-color: #18181b;
+}
+
+.add-button {
+  background-color: #6366f1;
+}
+
+.menu-button:hover,
+.add-button:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.menu-button:active,
+.add-button:active {
+  transform: scale(0.95);
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Week Calendar */
+.week-calendar {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.day-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.day-label {
+  font-size: 14px;
+  color: #71717a;
+}
+
+.day-label.active {
+  color: #fff;
+  font-weight: 500;
+}
+
+.day-circle {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: 500;
+  color: #71717a;
+}
+
+.day-circle.active {
+  background-color: #6366f1;
+  color: #fff;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 32px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+  margin-top: 48px;
+}
+
+.icon-container {
+  margin-bottom: 24px;
+}
+
+.empty-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+.empty-subtitle {
+  color: #71717a;
+  margin: 0;
+}
+
+/* Create Button */
+.create-button {
+  width: 100%;
+  max-width: 448px;
+  background-color: #6366f1;
+  color: #fff;
+  padding: 16px 24px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 24px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.create-button:hover {
+  background-color: #4f46e5;
+  transform: scale(1.02);
+}
+
+.create-button:active {
+  transform: scale(0.98);
+}
+
+/* Onboarding Card */
+.onboarding-card {
+  width: 100%;
+  max-width: 448px;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  border-radius: 24px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.onboarding-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.onboarding-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  margin-top: 0;
+}
+
+.onboarding-progress {
+  color: #c7d2fe;
+  font-size: 14px;
+  margin: 0;
+}
+
+.chevron-button {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.chevron-button:hover {
+  transform: scale(1.1);
+}
+
+.onboarding-content {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.onboarding-subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+.onboarding-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 12px;
+  transition: background-color 0.2s;
+}
+
+.onboarding-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.onboarding-item:last-child {
+  margin-bottom: 0;
+}
+
+.onboarding-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #6366f1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.onboarding-item-content {
+  flex: 1;
+}
+
+.onboarding-item-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+  margin-top: 0;
+}
+
+.onboarding-item-description {
+  font-size: 14px;
+  color: #d1d5db;
+  margin: 0;
+}
+
+/* Habits List */
+.habits-list {
+  width: 100%;
+  max-width: 448px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.habit-card {
+  background-color: #18181b;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.habit-card.completed {
+  opacity: 0.6;
+}
+
+.habit-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.habit-icon {
+  font-size: 32px;
+}
+
+.habit-details {
+  flex: 1;
+}
+
+.habit-name {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.habit-type {
+  font-size: 13px;
+  color: #71717a;
+  margin: 0;
+}
+
+.habit-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.check-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #6366f1;
+  background-color: transparent;
+  color: #6366f1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.2s;
+}
+
+.check-button:hover {
+  transform: scale(1.1);
+}
+
+.check-button.checked {
+  background-color: #6366f1;
+  color: #fff;
+}
+
+.delete-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ef4444;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: all 0.2s;
+}
+
+.delete-button:hover {
+  transform: scale(1.1);
+  background-color: #dc2626;
+}
+
+.add-more-button {
+  background-color: #18181b;
+  color: #6366f1;
+  border: 2px solid #6366f1;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+.add-more-button:hover {
+  background-color: #6366f1;
+  color: #fff;
+  transform: scale(1.02);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background-color: #18181b;
+  border-radius: 24px;
+  padding: 32px 24px;
+  max-width: 400px;
+  width: 90%;
+  animation: slideUp 0.3s;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 8px 0;
+  text-align: center;
+}
+
+.modal-subtitle {
+  color: #71717a;
+  text-align: center;
+  margin: 0 0 24px 0;
+}
+
+.modal-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.modal-option {
+  background-color: #000;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  color: #fff;
+}
+
+.modal-option:hover {
+  transform: scale(1.02);
+}
+
+.modal-option.good:hover {
+  border-color: #22c55e;
+}
+
+.modal-option.bad:hover {
+  border-color: #ef4444;
+}
+
+.modal-option.task:hover {
+  border-color: #6366f1;
+}
+
+.modal-option h4 {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+}
+
+.modal-option p {
+  margin: 0;
+  font-size: 14px;
+  color: #71717a;
+}
+
+.modal-close {
+  width: 100%;
+  background-color: #27272a;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modal-close:hover {
+  background-color: #3f3f46;
+}
